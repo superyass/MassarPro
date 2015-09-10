@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+ 
+<h:head>
+<style type="text/css">
+    .couleur{ color: red; }
+    .ui-widget,
+	.ui-widget .ui-widget
+	{
+    	font-size: 90% !important;
+	}
+</style>
+</h:head>
+<h:body>
+	<h4>Absences / retards</h4>
+	
+	
+	<h:form>  
+    	<p:dataTable var="absence_retard" 
+    		value="#{AbsenceretardMB.listet}" resizableColumns="true"
+    		liveResize="true"
+    		rowStyleClass="#{absence_retard.justifie ? null : 'couleur'}"
+    		paginator="true" rows="5"
+    		paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+    		rowsPerPageTemplate="5,10,15">
+
+    		<f:facet name="header">Absences/Retards</f:facet>
+
+    		<p:column headerText="Type" sortBy="absence">
+    			<h:outputText value="Absence"
+    				rendered="#{absence_retard.absence}" />
+    			<h:outputText value="Retard"
+    				rendered="#{not absence_retard.absence}" />
+    		</p:column>
+
+    		<p:column headerText="Scéance" sortBy="numSean" >
+    			<h:outputText value="#{absence_retard.numSean}" />
+    		</p:column>
+
+    		<p:column headerText="Matière" sortBy="nom">
+    			<h:outputText value="#{absence_retard.matiere.nom}" />
+    		</p:column>
+
+    		<p:column headerText="Date" sortBy="date">
+    			<h:outputText value="#{absence_retard.date}"
+    				converter="javax.faces.DateTime" />
+    		</p:column>
+
+    		<p:column headerText="Justifié" sortBy="justifie">
+    			<h:outputText value="Oui"
+    				rendered="#{absence_retard.justifie and absence_retard.absence}" />
+    			<h:outputText value="Non"
+    				rendered="#{not absence_retard.justifie and absence_retard.absence}" />
+    			<h:outputText value="---"
+    				rendered="#{not absence_retard.absence}" />
+    		</p:column>
+
+    		<p:column headerText="Motif" sortBy="motif">
+    			<h:outputText value="#{absence_retard.motif}"
+    				rendered="#{absence_retard.absence}" />
+    			<h:outputText value="---"
+    				rendered="#{not absence_retard.absence}" />
+    		</p:column>
+
+    		<f:facet name="footer">Nombre d'absences : #{AbsenceretardMB.nbrAbs} (#{AbsenceretardMB.nbrAbsJus} Justifiées, #{AbsenceretardMB.nbrAbs - AbsenceretardMB.nbrAbsJus} Non justifiées ) , Nombre de retards : #{AbsenceretardMB.nbrRtd}</f:facet>
+	    </p:dataTable>  
+	</h:form>  
+
+   
+
+ 
+</h:body>
+</html>

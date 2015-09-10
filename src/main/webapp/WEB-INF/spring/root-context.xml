@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+
+	<bean id="DAOFactory" name="DAOFactory"
+		class="ma.massarpro.dao.impl.DAOFactoryImpl" scope="singleton" init-method="init">
+		<property name="_absence_retardDAO" ref="Absence_retardDAO"></property>
+		<property name="_administrateurDAO" ref="AdministrateurDAO"></property>
+		<property name="_classeDAO" ref="ClasseDAO"></property>
+		<property name="_controleDAO" ref="ControleDAO"></property>
+		<property name="_emploieDAO" ref="EmploieDAO"></property>
+		<property name="_etudiantDAO" ref="EtudiantDAO"></property>
+		<property name="_matiereDAO" ref="MatiereDAO"></property>
+		<property name="_messageDAO" ref="MessageDAO"></property>
+		<property name="_niveauDAO" ref="NiveauDAO"></property>
+		<property name="_notesDAO" ref="NotesDAO"></property>
+		<property name="_parentDAO" ref="ParentDAO"></property>
+		<property name="_personneDAO" ref="PersonneDAO"></property>
+		<property name="_professeurDAO" ref="ProfesseurDAO"></property>
+		<property name="_supportDAO" ref="SupportDAO"></property>
+	</bean>
+	<bean id="Absence_retardDAO" name="Absence_retardDAO"
+		class="ma.massarpro.dao.impl.Absence_retardDAOImpl"
+		scope="singleton">
+	</bean>
+	<bean id="AdministrateurDAO" name="AdministrateurDAO"
+		class="ma.massarpro.dao.impl.AdministrateurDAOImpl"
+		scope="singleton">
+	</bean>
+	<bean id="ClasseDAO" name="ClasseDAO"
+		class="ma.massarpro.dao.impl.ClasseDAOImpl" scope="singleton">
+	</bean>
+	<bean id="ControleDAO" name="ControleDAO"
+		class="ma.massarpro.dao.impl.ControleDAOImpl" scope="singleton">
+	</bean>
+	<bean id="EmploieDAO" name="EmploieDAO"
+		class="ma.massarpro.dao.impl.EmploieDAOImpl" scope="singleton">
+	</bean>
+
+	<bean id="EtudiantDAO" name="EtudiantDAO"
+		class="ma.massarpro.dao.impl.EtudiantDAOImpl" scope="singleton">
+	</bean>
+	<bean id="MatiereDAO" name="MatiereDAO"
+		class="ma.massarpro.dao.impl.MatiereDAOImpl" scope="singleton">
+	</bean>
+	<bean id="MessageDAO" name="MessageDAO"
+		class="ma.massarpro.dao.impl.MessageDAOImpl" scope="singleton">
+	</bean>
+	<bean id="NiveauDAO" name="NiveauDAO"
+		class="ma.massarpro.dao.impl.NiveauDAOImpl" scope="singleton">
+	</bean>
+	<bean id="NotesDAO" name="NotesDAO"
+		class="ma.massarpro.dao.impl.NotesDAOImpl" scope="singleton">
+	</bean>
+	<bean id="ParentDAO" name="ParentDAO"
+		class="ma.massarpro.dao.impl.ParentDAOImpl" scope="singleton">
+	</bean>
+	<bean id="PersonneDAO" name="PersonneDAO"
+		class="ma.massarpro.dao.impl.PersonneDAOImpl" scope="singleton">
+	</bean>
+	<bean id="ProfesseurDAO" name="ProfesseurDAO"
+		class="ma.massarpro.dao.impl.ProfesseurDAOImpl" scope="singleton">
+	</bean>
+	<bean id="SupportDAO" name="SupportDAO"
+		class="ma.massarpro.dao.impl.SupportDAOImpl" scope="singleton">
+	</bean>
+	<bean id="Absence_retard" name="Absence_retard"
+		class="ma.massarpro.beans.Absence_retard">
+	</bean>
+	<bean id="Administrateur" name="Administrateur"
+		class="ma.massarpro.beans.Administrateur" init-method="init">
+	</bean>
+	<bean id="Classe" name="Classe" class="ma.massarpro.beans.Classe"></bean>
+	<bean id="Controle" name="Controle"
+		class="ma.massarpro.beans.Controle">
+	</bean>
+	<bean id="Emploie" name="Emploie"
+		class="ma.massarpro.beans.Emploie">
+	</bean>
+
+	<bean id="Etudiant" name="Etudiant"
+		class="ma.massarpro.beans.Etudiant" init-method="init">
+	</bean>
+	<bean id="Matiere" name="Matiere"
+		class="ma.massarpro.beans.Matiere">
+	</bean>
+	<bean id="Message" name="Message"
+		class="ma.massarpro.beans.Message">
+	</bean>
+	<bean id="Niveau" name="Niveau" class="ma.massarpro.beans.Niveau"></bean>
+	<bean id="Notes" name="Notes" class="ma.massarpro.beans.Notes"></bean>
+	<bean id="Parent" name="Parent" class="ma.massarpro.beans.Parent"
+		init-method="init">
+	</bean>
+	<bean id="Personne" name="Personne"
+		class="ma.massarpro.beans.Personne" init-method="init">
+	</bean>
+	<bean id="Professeur" name="Professeur"
+		class="ma.massarpro.beans.Professeur" init-method="init">
+	</bean>
+	<bean id="Support" name="Support"
+		class="ma.massarpro.beans.Support">
+	</bean>
+ 
+	<bean id="applicationContextUtils" name="applicationContextUtils"
+		class="ma.massarpro.utils.applicationContextUtils"
+		scope="singleton">
+	</bean>
+
+</beans>
